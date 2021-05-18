@@ -1,9 +1,21 @@
 {
   "name": "ReveryHackerNews",
   "author": "zbaylin",
+  "scripts": {
+    "run": "esy x ReveryHackerNews",
+    "format": "esy bash -c \"dune build @fmt --auto-promote\""
+  },
+  "esy": {
+    "build": "dune build -p ReveryHackerNews",
+    "unstall": [
+      "esy-installer ReveryHackerNews.install"
+    ]
+  },
   "dependencies": {
     "@opam/dune": "^2.8.2",
     "@revery/timber": "^2.0.0",
+    "@opam/yojson": "^1.7.0",
+    "@opam/ppx_yojson_conv": "v0.14.0",
     "revery": "revery-ui/revery#d599514",
     "ReQuests": "zbaylin/ReQuests#0a46b2e"
   },

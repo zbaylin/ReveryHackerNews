@@ -1,0 +1,7 @@
+(executables
+ (names ReveryHackerNews)
+ (preprocess
+  (pps brisk-reconciler.ppx ppx_yojson_conv))
+ (package ReveryHackerNews)
+ (public_names ReveryHackerNews)
+ (libraries ReQuests Revery luv yojson))
