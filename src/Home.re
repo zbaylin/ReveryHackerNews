@@ -64,7 +64,7 @@ let%component make = () => {
             |> List.mapi((idx, id) =>
                  if (idx <= (int_of_float((-1.) *. offset) + height)
                      / Constants.storyHeight) {
-                   <Item id />;
+                   <HomeItem id />;
                  } else {
                    <View />;
                  }

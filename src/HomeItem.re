@@ -13,11 +13,7 @@ module Styles = {
       backgroundColor(hovered ? HNColors.selected : HNColors.background),
     ];
   let stats = Style.[alignItems(`FlexEnd)];
-  let item =
-    Style.[
-      flexDirection(`Row),
-      justifyContent(`SpaceBetween),
-    ];
+  let item = Style.[flexDirection(`Row), justifyContent(`SpaceBetween)];
 };
 
 let%component make = (~id: int, ()) => {
