@@ -11,7 +11,7 @@ module Styles = {
   };
 };
 
-let%component make = () => {
+let%component make = (~onCommentsClicked: int => unit, ()) => {
   let%hook (stories, setStories) = Hooks.state([]);
   let%hook (offset, setOffset) = Hooks.state(0.);
   let%hook (maybeHeight, setMaybeHeight) = Hooks.state(None);
@@ -64,7 +64,7 @@ let%component make = () => {
             |> List.mapi((idx, id) =>
                  if (idx <= (int_of_float((-1.) *. offset) + height)
                      / Constants.storyHeight) {
-                   <HomeItem id />;
+                   <HomeItem onCommentsClicked id />;
                  } else {
                    <View />;
                  }

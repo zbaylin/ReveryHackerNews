@@ -13,10 +13,11 @@ module Styles = {
       backgroundColor(hovered ? HNColors.selected : HNColors.background),
     ];
   let stats = Style.[alignItems(`FlexEnd)];
+  let comments = Style.[cursor(MouseCursors.pointer), ...grey];
   let item = Style.[flexDirection(`Row), justifyContent(`SpaceBetween)];
 };
 
-let%component make = (~id: int, ()) => {
+let%component make = (~id: int, ~onCommentsClicked: int => unit, ()) => {
   let%hook (item, setItem) = Hooks.state(None);
   let%hook (hovered, setHovered) = Hooks.state(false);
 
@@ -85,9 +86,10 @@ let%component make = (~id: int, ()) => {
              fontSize=13.
            />
            <Text
-             style=Styles.grey
+             style=Styles.comments
              text={Printf.sprintf("%d comments", story.descendants)}
              fontSize=13.
+             onMouseUp={_ => onCommentsClicked(id)}
            />
          </View>
        </View>
@@ -108,6 +110,7 @@ let%component make = (~id: int, ()) => {
            />
          </View>
        </View>
+     | Some(_) => <View />
      }}
   </View>;
 };
